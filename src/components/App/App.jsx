@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 // Components of the app distributed and imported
-import Playlist from '../PlayList/playlist';
+import Playlist from '../Playlist/Playlist';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/searchResults';
 import Spotify from '../util/Spotify';
