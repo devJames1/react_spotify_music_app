@@ -10,7 +10,7 @@ html {
 
 h1 {
   padding: 0.77rem, 0;
-  background-color: #c23;
+  background-color: #b16d22;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.88rem;
@@ -33,7 +33,7 @@ h2 {
 
 .App {
   height: 100%;
-  padding: 0 17%, 10%, 17%;
+  padding: 0 17% 10% 17%;
   background-image: url(./music_concert.jpg);
   background-size: cover;
   background-position: center;
@@ -43,13 +43,13 @@ h2 {
   color: #fff;
 }
 
-.App.playlist {
+.App-playlist {
   display: flex;
   justify-content: space-between;
 }
 
 @media only screen and (max-width: 1020px) {
-  .App.App.playlist {
+  .App-playlist {
     align-items: center;
     flex-direction: column;
   }

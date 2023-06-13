@@ -4,8 +4,8 @@ import './App.css';
 // Components of the app distributed and imported
 import Playlist from '../Playlist/Playlist';
 import SearchBar from '../SearchBar/SearchBar';
-import SearchResults from '../SearchResults/searchResults';
-import Spotify from '../util/Spotify';
+import SearchResults from '../SearchResults/SearchResults';
+import Spotify from '../../util/Spotify';
 
 function App() {
   // let [music, setMusic] = useState();
@@ -16,8 +16,8 @@ function App() {
 
   const search = async (term) => {
     try {
-      searchResults = await Spotify.search(term);
-      setSearchResults(searchResults);
+      let currSearchResults = await Spotify.search(term);
+      setSearchResults(currSearchResults);
     } catch (err) {
       console.log(`Error retrieving data: ${err}`);
     }
@@ -76,7 +76,7 @@ function App() {
       </h1>
       <div className="App">
         <SearchBar onSearch={search} />
-        <div className="App.playlist">
+        <div className="App-playlist">
           <SearchResults searchResults={searchResults} onAdd={doThese} />
           <Playlist
             playlistTracks={playlistTracks}

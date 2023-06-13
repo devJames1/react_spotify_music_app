@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './Track.css';
 
-function SearchBar(props) {
+function Track(props) {
   const addTrack = (event) => {
     props.onAdd(props.track);
   };
 
   const removeTrack = () => {
-    props.onRemove(state.track);
+    props.onRemove(props.track);
   };
 
   const renderAction = () => {
@@ -51,4 +51,4 @@ function SearchBar(props) {
   );
 }
 
-export default SearchBar;
+export default Track;

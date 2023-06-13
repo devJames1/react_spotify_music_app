@@ -3,10 +3,11 @@ import React from 'react';
 import './Tracklist.css';
 import Track from '../Track/Track';
 
-function Tracklist() {
+function Tracklist(props) {
   return (
     <div className="Tracklist">
-      {props.tracks.map((track) => {
+      {/* I used props.tracks?.map to check if props.tracks exists and maps only then over the array */}
+      {props.tracks?.map((track) => {
         return (
           <Track
             track={track}

@@ -14,14 +14,14 @@
   margin-bottom: 2.22rem;
   color: #010c3f;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .SearchBar input:focus {
   outline: none;
 }
 
-.searchButton {
+.SearchButton {
   cursor: pointer;
   width: 8.11rem;
   padding: 0.77rem 0;
@@ -29,13 +29,13 @@
   background-color: #1db954;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.833rem;
+  font-size: 1rem;
   transition: background-color 0.25s;
   border: 0px;
   color: #fff;
   font-weight: 500;
 }
 
-.searchButton:hover {
+.SearchButton:hover {
   background-color: rgb(65, 233, 129, 0.7);
 }

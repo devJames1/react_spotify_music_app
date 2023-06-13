@@ -23,7 +23,7 @@ function SearchBar(props) {
   return (
     <div className="SearchBar">
       <input
-        placeholder="Enter song, album, artist"
+        placeholder="Enter song, album or artist"
         onChange={handleTermChange}
         onKeyUp={handleEnter}
       />

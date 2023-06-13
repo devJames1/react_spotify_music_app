@@ -1,10 +1,14 @@
-const clientId = '8b7410cb4e94457e8e19096e627d8a46';
-const redirectUri = 'http://localhost:3000';
+require('dotenv').config();
+
+const clientId = process.env.CLIENT_ID;
+console.log(clientId);
+const redirectUri = 'https://localhost:3000';
 let accessToken;
 
 const Spotify = {
   getAccessToken() {
     if (accessToken) {
+      console.log(accessToken);
       return accessToken;
     }
 
@@ -12,22 +16,26 @@ const Spotify = {
     const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
     if (accessTokenMatch && expiresInMatch) {
       accessToken = accessTokenMatch[1];
+      //test
+      console.log(accessToken);
       const expiresIn = Number(expiresInMatch[1]);
       window.setTimeout(() => (accessToken = ''), expiresIn * 1000);
-      windows.history.pushState('Access Token', null, '/'); // this clears the parameters, allowing us to get a new access token when it expires
+      window.history.pushState('Access Token', null, '/'); // this clears the parameters, allowing us to get a new access token when it expires
       return accessToken;
     } else {
-      const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-puplic&redirect_url=${redirectUri}`;
+      const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-puplic&redirect_uri=${redirectUri}`;
       window.location = accessUrl;
     }
   },
   search(term) {
-    const accessToken = Spotify.getAccessToken();
-    return fetch(`https://api.spotify.com/v1/search?type=track&g=${term}`, {
-      headers: {
-        Authorization: 'Bearer ${accessToken}',
-      },
-    })
+    Spotify.getAccessToken()
+      .then((accessToken) => {
+        return fetch(`https://api.spotify.com/v1/search?type=track&g=${term}`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+      })
       .then((response) => {
         return response.json();
       })
