@@ -5,16 +5,23 @@
   padding: 0.88rem;
   background-color: rgba(95, 23, 23, 0.7);
   box-shadow: 0 4px 2px 2px #000000;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(95, 23, 23, 0.7);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(196, 93, 93, 0.7);
+}
 
-  ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
-
-  @media only screen and (max-width: 1020px) {
-    .SearchResults {
-      width: 90%;
-      margin-bottom: 2rem;
-    }
+@media only screen and (max-width: 1020px) {
+  .SearchResults {
+    width: 90%;
+    margin-bottom: 2rem;
   }
 }

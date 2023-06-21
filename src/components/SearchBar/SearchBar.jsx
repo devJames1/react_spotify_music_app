@@ -14,8 +14,8 @@ function SearchBar(props) {
   };
 
   const handleEnter = (event) => {
-    //event.keyCode is deprecated, so used event.code
-    if (event.code === 13) {
+    //event.keyCode is deprecated, so I used event.code
+    if (event.code === 'Enter') {
       search();
     }
   };

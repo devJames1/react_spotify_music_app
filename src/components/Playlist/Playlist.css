@@ -41,10 +41,10 @@
   background-color: rgba(65, 233, 129, 0.7);
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
-}
+} */
 
 @media only screen and (max-width: 1020px) {
   .Playlist {

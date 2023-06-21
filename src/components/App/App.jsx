@@ -9,15 +9,16 @@ import Spotify from '../../util/Spotify';
 
 function App() {
   // let [music, setMusic] = useState();
-  const [searchResults, setSearchResults] = useState([]);
-  const [playlistName, setPlName] = useState('New Playlist');
+  let [searchResults, setSearchResults] = useState([]);
+  let [playlistName, setPlName] = useState('New Playlist');
   // const [updatedPlaylistName, setUpPlName] = useState('');
-  const [playlistTracks, setPlTracks] = useState([]);
+  let [playlistTracks, setPlTracks] = useState([]);
 
   const search = async (term) => {
     try {
-      let currSearchResults = await Spotify.search(term);
-      setSearchResults(currSearchResults);
+      searchResults = await Spotify.search(term);
+      setSearchResults(searchResults);
+      console.log(searchResults);
     } catch (err) {
       console.log(`Error retrieving data: ${err}`);
     }
@@ -58,10 +59,10 @@ function App() {
   };
 
   const savePlaylist = async () => {
-    const trackUrls = playlistTracks.map((track) => track.url);
+    const trackUris = playlistTracks.map((track) => track.uri);
     try {
       //Spotify method savePlaylist
-      await Spotify.savePlaylist(playlistName, trackUrls);
+      await Spotify.savePlaylist(playlistName, trackUris);
       setPlName('New Playlist');
       setPlTracks([]);
     } catch (err) {

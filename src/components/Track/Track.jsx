@@ -3,7 +3,7 @@ import React from 'react';
 import './Track.css';
 
 function Track(props) {
-  const addTrack = (event) => {
+  const addTrack = () => {
     props.onAdd(props.track);
   };
 
@@ -38,15 +38,15 @@ function Track(props) {
         {/* connecting to sportify stream using frame to show small embeded window */}
         <iframe
           src={'https://open.spotify.com/embed/track/' + props.track.id}
-          width={300}
+          width={250}
           height={80}
-          frameborder="0"
+          // frameBorder="0"
           allowTransparency="true"
           allow="encripted media"
           title="preview"
         />{' '}
       </div>
-      {renderAction}
+      {renderAction()}
     </div>
   );
 }

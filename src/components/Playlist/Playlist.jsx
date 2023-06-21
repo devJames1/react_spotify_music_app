@@ -12,7 +12,7 @@ function Playlist(props) {
     <div className="Playlist">
       <input onChange={handleNameChange} defaultValue={'New Playlist'} />
       <Tracklist
-        track={props.PlaylistTracks}
+        tracks={props.playlistTracks}
         isRemoval={true}
         onRemove={props.onRemove}
       />
